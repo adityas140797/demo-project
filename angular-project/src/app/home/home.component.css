@@ -1,0 +1,37 @@
+a {
+  padding: 6px 10px;
+  color: darkblue;
+}
+
+.card {
+  margin: 1% 4.6%;
+  width: 90%;
+}
+
+a:hover {
+  background-color: lightblue;
+  text-decoration: none;
+}
+
+.createPostBtn {
+  margin: 1% 0% 0% 44%;
+  color: purple;
+  border-radius: 0px;
+}
+
+.cancelBtn {
+  color:firebrick;
+  padding: 6px 20px;
+}
+
+.submitBtn {
+  width: 110px;
+}
+
+.modal-header {
+  border-bottom: 1px solid darkblue;
+}
+
+.modal-title {
+  color: darkblue;
+}
