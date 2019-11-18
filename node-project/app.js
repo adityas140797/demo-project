@@ -27,12 +27,8 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message })
 })
 
-//DB Connection:
-// <Issue> - Aditya local mongo db connection; <Fix> - Will later on fix this issue by adding a
-// seperate file for db connection variables and adding it to .gitignore
-
 mongoose.connect(
-  'mongodb://aditya:aditya123@127.0.0.1:27017/feed?authSource=admin'
+  'mongodb://127.0.0.1/feed', { useNewUrlParser: true }
 ).then(result => {
   app.listen(4300);
 }).catch(err => console.log(err));
