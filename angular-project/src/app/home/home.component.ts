@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/add/operator/map';
-import { AuthHttp, AUTH_PROVIDERS, provideAuth, AuthConfig } from 'angular2-jwt';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -8,22 +8,24 @@ import { AuthHttp, AUTH_PROVIDERS, provideAuth, AuthConfig } from 'angular2-jwt'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  posts: any = [];
 
-  constructor(private http: AuthHttp) {
-    http["http"]._defaultOptions.withCredentials = true;
- }
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.getPosts().subscribe((res) => {
-      console.log(res);
+      this.posts = res['posts'];
+      for(let post of this.posts) {
+        post.createdDate = (new Date(post.createdAt)).toLocaleDateString();;
+      }
     }, (err) => {
-      console.log(err);
+      console.log(err); //Will be adding toastr in future
     });
   }
 
   getPosts() {
     let url = 'http://localhost:4300/feed/posts'
-    return this.http.get(url).map(data => data.json());
+    return this.http.get(url);
   }
 
 }

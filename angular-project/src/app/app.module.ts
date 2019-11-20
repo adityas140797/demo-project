@@ -7,8 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavBarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { AuthHttp, AUTH_PROVIDERS, provideAuth, AuthConfig } from  'angular2-jwt/angular2-jwt';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,9 +20,9 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpClientModule
   ],
-  providers: [AUTH_PROVIDERS],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
